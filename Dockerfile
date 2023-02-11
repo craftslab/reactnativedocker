@@ -36,20 +36,21 @@ ENV SHELL="/bin/bash"
 
 USER craftslab
 WORKDIR /home/craftslab
-ARG ANDROID=$HOME/android/sdk
+ARG ANDROID=/home/craftslab/opt/android
+RUN curl -L https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -o commandlinetools.zip && \
+    mkdir -p $ANDROID; unzip commandlinetools.zip -d $ANDROID > /dev/null && \
+    rm -f *.zip
 ENV ANDROID_HOME=$ANDROID
-ENV PATH=$ANDROID/platform-tools:$PATH
-RUN curl -L https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -o sdk-tools.zip && \
-    mkdir -p $ANDROID; unzip sdk-tools.zip -d $ANDROID > /dev/null && \
-    rm -f sdk-tools.zip
+ENV PATH=$ANDROID/cmdline-tools/bin:$ANDROID/platform-tools:$ANDROID/tools/bin:$PATH
 RUN mkdir $HOME/.android; echo "count=0" > $HOME/.android/repositories.cfg && \
-    yes | sdkmanager "build-tools;31.0.0" > /dev/null && \
-    yes | sdkmanager "extras;android;m2repository" > /dev/null && \
-    yes | sdkmanager "extras;google;m2repository" > /dev/null && \
-    yes | sdkmanager "platforms;android-31" > /dev/null && \
-    yes | sdkmanager "platform-tools" > /dev/null && \
-    yes | sdkmanager "tools" > /dev/null && \
-    yes | sdkmanager --licenses > /dev/null && \
+    yes | sdkmanager --sdk_root=$ANDROID_HOME "build-tools;31.0.0" > /dev/null && \
+    yes | sdkmanager --sdk_root=$ANDROID_HOME "cmdline-tools;latest" > /dev/null && \
+    yes | sdkmanager --sdk_root=$ANDROID_HOME "extras;android;m2repository" > /dev/null && \
+    yes | sdkmanager --sdk_root=$ANDROID_HOME "extras;google;m2repository" > /dev/null && \
+    yes | sdkmanager --sdk_root=$ANDROID_HOME "platforms;android-31" > /dev/null && \
+    yes | sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" > /dev/null && \
+    yes | sdkmanager --sdk_root=$ANDROID_HOME "tools" > /dev/null && \
+    yes | sdkmanager --sdk_root=$ANDROID_HOME --licenses > /dev/null
 RUN curl -LO https://nodejs.org/download/release/v18.13.0/node-v18.13.0-linux-x64.tar.xz && \
     tar Jxvf node*.tar.xz && \
     rm node*.tar.xz && \
