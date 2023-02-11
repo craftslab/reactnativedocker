@@ -38,6 +38,8 @@ docker pull craftslab/reactnativedocker:latest
 
 ## Reference
 
+- [generate-react-native-release-build-android](https://instamobile.io/android-development/generate-react-native-release-build-android/)
+
 - [environment-setup](https://reactnative.dev/docs/environment-setup)
 - [publishing-to-app-store](https://reactnative.dev/docs/publishing-to-app-store)
 - [running-on-device](https://reactnative.dev/docs/running-on-device)
