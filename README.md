@@ -38,6 +38,7 @@ docker pull craftslab/reactnativedocker:latest
 
 ## Reference
 
-- [React Native Publish](https://reactnative.dev/docs/signed-apk-android)
-- [React Native Run](https://reactnative.dev/docs/running-on-device)
-- [React Native Setup](https://reactnative.dev/docs/environment-setup)
+- [environment-setup](https://reactnative.dev/docs/environment-setup)
+- [publishing-to-app-store](https://reactnative.dev/docs/publishing-to-app-store)
+- [running-on-device](https://reactnative.dev/docs/running-on-device)
+- [signed-apk-android](https://reactnative.dev/docs/signed-apk-android)
