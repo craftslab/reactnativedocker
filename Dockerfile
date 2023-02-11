@@ -36,7 +36,7 @@ ENV SHELL="/bin/bash"
 
 USER craftslab
 WORKDIR /home/craftslab
-ARG ANDROID=/home/craftslab/opt/android
+ARG ANDROID=/home/craftslab/android
 RUN curl -L https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -o commandlinetools.zip && \
     mkdir -p $ANDROID; unzip commandlinetools.zip -d $ANDROID > /dev/null && \
     rm -f *.zip
@@ -56,3 +56,8 @@ RUN curl -LO https://nodejs.org/download/release/v18.13.0/node-v18.13.0-linux-x6
     rm node*.tar.xz && \
     mv node-* node
 ENV PATH=/home/craftslab/node/bin:$PATH
+RUN curl -LO https://services.gradle.org/distributions/gradle-7.5.1-all.zip && \
+    unzip gradle*.zip && \
+    rm gradle*.zip && \
+    mv gradle-* gradle
+ENV PATH=/home/craftslab/gradle/bin:$PATH
