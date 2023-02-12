@@ -38,6 +38,7 @@ docker pull craftslab/reactnativedocker:latest
 
 ## Reference
 
+- [disable-gradle-download](https://stackoverflow.com/questions/49159432/make-react-native-run-android-command-to-not-download-files-when-compile-project)
 - [environment-setup](https://reactnative.dev/docs/environment-setup)
 - [generate-react-native-release-build-android](https://instamobile.io/android-development/generate-react-native-release-build-android/)
 - [publishing-to-app-store](https://reactnative.dev/docs/publishing-to-app-store)
