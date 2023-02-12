@@ -6,7 +6,7 @@ npx react-native init AwesomeProject
 # Build debug
 # Target: android/app/build/outputs/apk/debug/app-debug.apk
 pushd AwesomeProject || exit
-npx react-native build-android
+npx react-native build-android --no-packager
 popd || exit
 
 # Build release
