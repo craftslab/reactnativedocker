@@ -3,6 +3,14 @@
 # Init
 npx react-native init AwesomeProject
 
-# Build
+# Build debug
+# Target: android/app/build/outputs/apk/debug/app-debug.apk
+pushd AwesomeProject || exit
+npx react-native build-android
+popd || exit
+
+# Build release
 # Target: android/app/build/outputs/apk/release/app-release.apk
-ORG_GRADLE_PROJECT_bundleInArRelease=true npx react-native run-android --variant Release
+pushd AwesomeProject/android || exit
+./gradlew assembleRelease
+popd || exit
