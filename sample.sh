@@ -3,12 +3,12 @@
 # Init project
 npx react-native init AwesomeProject
 
-# Download Gradle
+# Download gradle
 curl -L https://services.gradle.org/distributions/gradle-7.5.1-all.zip -o /tmp/gradle-7.5.1-all.zip
 
 # Set distributionUrl
 pushd AwesomeProject || exit
-sed -i "s/^distributionUrl=.*$/distributionUrl=\/tmp\/gradle-7.5.1-all.zip/g" android/gradle/wrapper/gradle-wrapper.properties
+sed -i "s/^distributionUrl=.*$/distributionUrl=file:\/tmp\/gradle-7.5.1-all.zip/g" android/gradle/wrapper/gradle-wrapper.properties
 popd || exit
 
 # Build debug
