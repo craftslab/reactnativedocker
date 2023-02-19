@@ -14,6 +14,7 @@ popd || exit
 # Build debug
 # Target: android/app/build/outputs/apk/debug/app-debug.apk
 pushd AwesomeProject || exit
+yarn
 npx react-native build-android --no-packager
 popd || exit
 
