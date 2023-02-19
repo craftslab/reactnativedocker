@@ -11,10 +11,14 @@ pushd AwesomeProject || exit
 sed -i "s/^distributionUrl=.*$/distributionUrl=file:\/tmp\/gradle-7.5.1-all.zip/g" android/gradle/wrapper/gradle-wrapper.properties
 popd || exit
 
+# Install module
+pushd AwesomeProject || exit
+yarn
+popd || exit
+
 # Build debug
 # Target: android/app/build/outputs/apk/debug/app-debug.apk
 pushd AwesomeProject || exit
-yarn
 npx react-native build-android --no-packager
 popd || exit
 
